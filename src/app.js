@@ -5,6 +5,8 @@ const forCast = require('./utils/forcast')
 const geocode = require('./utils/geocode')
 
 const app = express()
+const port = process.env.PORT || 3030
+
 console.log("__dirname",path.join(__dirname, '../public'));
 app.use(express.static(path.join(__dirname, '../public')));
 
@@ -69,4 +71,6 @@ app.get('/weather', (req, res) => {
 })
 
 
-app.listen("3030")
+app.listen(port,()=>{
+    console.log("server is up on "+port);
+})
